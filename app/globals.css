@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Heritage palette */
+  --heritage-bg: #0a0a0b;
+  --heritage-panel: #141417;
+  --heritage-muted: #8a8a93;
+  --heritage-gold: #d4af37;
+  --heritage-red: #c8102e;
+  --heritage-ivory: #f4efe6;
+  --heritage-border: rgba(244, 239, 230, 0.08);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Georgia", "Times New Roman", serif;
+}
+
+* {
+  border-color: var(--heritage-border);
+}
+
+html,
+body {
+  background-color: var(--heritage-bg);
+  color: var(--heritage-ivory);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-image:
+    radial-gradient(1200px 600px at 50% -10%, rgba(200, 16, 46, 0.08), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(212, 175, 55, 0.05), transparent 55%);
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: var(--heritage-ivory);
+}
+
+/* Accessible focus ring */
+:where(button, a, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--heritage-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Custom scrollbars for the cinematic feel */
+.heritage-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.4) transparent;
+}
+.heritage-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.heritage-scroll::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+}
+.heritage-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Glass panel utility */
+.heritage-glass {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 23, 0.92),
+    rgba(10, 10, 11, 0.92)
+  );
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--heritage-border);
+}
+
+.heritage-gold-text {
+  color: var(--heritage-gold);
+}
+
+.heritage-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.4),
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
